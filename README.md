@@ -12,7 +12,7 @@
 | first_name             | string | null: false |
 | family_name_kana       | string | null: false |
 | first_name_kana        | string | null: false |
-| birthday_id            | integer| null: false |
+| birthday_id            | date   | null: false |
 
 ### Association
 
@@ -24,6 +24,7 @@
 
 | Column          | Type   | Options                        |
 | --------------- | ------ | ------------------------------ |
+| user_id         | integer| null: false, foreign_key: true |
 | name            | string | null: false                    |
 | item_detail     | text   | null: false                    |
 | price           | integer| null: false                    |
@@ -51,6 +52,19 @@
 | ------------ | ------ | ------------------------------ |
 | user_id      | string | null: false, foreign_key: true |
 | item_id      | string | null: false, foreign_key: true |
+
+
+### Association
+
+- belongs_to :item 
+- belongs_to :user
+- has_one :user_address
+
+## user_address テーブル
+
+| Column       | Type   | Options                        |
+| ------------ | ------ | ------------------------------ |
+| user_item_id | string | null: false, foreign_key: true |
 | postal_code  | integer| null: false                    |
 | prefecture_id| integer| null: false, foreign_key: true |                    |
 | city         | string | null: false                    |
@@ -60,6 +74,5 @@
 
 ### Association
 
-- belongs_to :item 
-- belongs_to :user
+- belongs_to :user_item
 - belongs_to_active_hash :prefecture
