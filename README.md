@@ -17,13 +17,13 @@
 ### Association
 
 - has_many :items
-- has_many :items, through: :user_item
+- has_many :user_items
 
 ## items テーブル
 
 | Column          | Type      | Options                        |
 | --------------- | --------- | ------------------------------ |
-| user_id         | references| null: false, foreign_key: true |
+| user            | references| null: false, foreign_key: true |
 | name            | string    | null: false                    |
 | item_detail     | text      | null: false                    |
 | price           | integer   | null: false                    |
@@ -43,14 +43,14 @@
 - belongs_to_active_hash :ship_fee
 - belongs_to_active_hash :prefecture
 - belongs_to_active_hash :ship_schedule
-- has_one :user, through: :user_item
+- has_one :user_items
 
-## user_item テーブル
+## user_items テーブル
 
 | Column       | Type       | Options                        |
 | ------------ | ---------- | ------------------------------ |
-| user_id      | references | null: false, foreign_key: true |
-| item_id      | references | null: false, foreign_key: true |
+| user         | references | null: false, foreign_key: true |
+| item         | references | null: false, foreign_key: true |
 
 
 ### Association
@@ -63,12 +63,12 @@
 
 | Column       | Type       | Options                        |
 | ------------ | ---------- | ------------------------------ |
-| user_item_id | references | null: false, foreign_key: true |
+| user_item    | references | null: false, foreign_key: true |
 | postal_code  | string     | null: false                    |
 | prefecture_id| integer    | null: false                    |
 | city         | string     | null: false                    |
 | address      | string     | null: false                    |
-| building_name| string     | null: false                    |
+| building_name| string     |                                |
 | phone        | string     | null: false                    | 
 
 
