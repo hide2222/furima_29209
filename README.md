@@ -17,8 +17,7 @@
 ### Association
 
 - has_many :items
-- has_one :item, through: :user_item
-- belongs_to_active_hash :birthday
+- has_many :items, through: :user_item
 
 ## items テーブル
 
@@ -28,10 +27,10 @@
 | name            | string | null: false                    |
 | item_detail     | text   | null: false                    |
 | price           | integer| null: false                    |
-| category1_id    | integer| null: false                    |
-| category2_id    | integer| null: false                    |
+| category_id     | integer| null: false                    |
+| status_id       | integer| null: false                    |
 | ship_fee_id     | integer| null: false                    |
-| prefecture_id   | integer| null: false, foreign_key: true | 
+| prefecture_id   | integer| null: false                    | 
 | ship_schedule_id| integer| null: false                    |
 
 
@@ -48,10 +47,10 @@
 
 ## user_item テーブル
 
-| Column       | Type   | Options                        |
-| ------------ | ------ | ------------------------------ |
-| user_id      | string | null: false, foreign_key: true |
-| item_id      | string | null: false, foreign_key: true |
+| Column       | Type       | Options                        |
+| ------------ | ---------- | ------------------------------ |
+| user_id      | references | null: false, foreign_key: true |
+| item_id      | references | null: false, foreign_key: true |
 
 
 ### Association
@@ -62,14 +61,16 @@
 
 ## user_address テーブル
 
-| Column       | Type   | Options                        |
-| ------------ | ------ | ------------------------------ |
-| user_item_id | string | null: false, foreign_key: true |
-| postal_code  | integer| null: false                    |
-| prefecture_id| integer| null: false, foreign_key: true |                    |
-| city         | string | null: false                    |
-| address      | string | null: false                    |
-| phone        | string | null: false                    | 
+| Column       | Type       | Options                        |
+| ------------ | ---------- | ------------------------------ |
+| user_item_id | references | null: false, foreign_key: true |
+| postal_code  | string     | null: false                    |
+| prefecture_id| integer    | null: false                    |
+| city         | string     | null: false                    |
+| address      | string     | null: false                    |
+| building_name| string     | null: false                    |
+| phone        | string     | null: false                    | 
+
 
 
 ### Association
