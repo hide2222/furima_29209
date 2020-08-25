@@ -43,7 +43,7 @@
 - belongs_to_active_hash :ship_fee
 - belongs_to_active_hash :prefecture
 - belongs_to_active_hash :ship_schedule
-- has_one :user_items
+- has_one :user_item
 
 ## user_items テーブル
 
