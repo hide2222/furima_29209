@@ -21,25 +21,25 @@
 
 ## items テーブル
 
-| Column          | Type   | Options                        |
-| --------------- | ------ | ------------------------------ |
-| user_id         | integer| null: false, foreign_key: true |
-| name            | string | null: false                    |
-| item_detail     | text   | null: false                    |
-| price           | integer| null: false                    |
-| category_id     | integer| null: false                    |
-| status_id       | integer| null: false                    |
-| ship_fee_id     | integer| null: false                    |
-| prefecture_id   | integer| null: false                    | 
-| ship_schedule_id| integer| null: false                    |
+| Column          | Type      | Options                        |
+| --------------- | --------- | ------------------------------ |
+| user_id         | references| null: false, foreign_key: true |
+| name            | string    | null: false                    |
+| item_detail     | text      | null: false                    |
+| price           | integer   | null: false                    |
+| category_id     | integer   | null: false                    |
+| status_id       | integer   | null: false                    |
+| ship_fee_id     | integer   | null: false                    |
+| prefecture_id   | integer   | null: false                    | 
+| ship_schedule_id| integer   | null: false                    |
 
 
 ### Association
 
 - belongs_to :user
 - has_one_attached :image
-- belongs_to_active_hash :category1
-- belongs_to_active_hash :category2
+- belongs_to_active_hash :category
+- belongs_to_active_hash :status
 - belongs_to_active_hash :ship_fee
 - belongs_to_active_hash :prefecture
 - belongs_to_active_hash :ship_schedule
