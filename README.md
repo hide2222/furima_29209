@@ -1,24 +1,79 @@
-# README
+#テーブル設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## users テーブル
 
-Things you may want to cover:
+| Column                 | Type   | Options     |
+| -----------------------| ------ | ----------- |
+| nickname               | string | null: false |
+| email                  | string | null: false |
+| password               | string | null: false |
+| password_confirmation  | string | null: false |
+| family_name            | string | null: false |
+| first_name             | string | null: false |
+| family_name_kana       | string | null: false |
+| first_name_kana        | string | null: false |
+| birthday_id            | date   | null: false |
 
-* Ruby version
+### Association
 
-* System dependencies
+- has_many :items
+- has_many :user_items
 
-* Configuration
+## items テーブル
 
-* Database creation
+| Column          | Type      | Options                        |
+| --------------- | --------- | ------------------------------ |
+| user            | references| null: false, foreign_key: true |
+| name            | string    | null: false                    |
+| item_detail     | text      | null: false                    |
+| price           | integer   | null: false                    |
+| category_id     | integer   | null: false                    |
+| status_id       | integer   | null: false                    |
+| ship_fee_id     | integer   | null: false                    |
+| prefecture_id   | integer   | null: false                    | 
+| ship_schedule_id| integer   | null: false                    |
 
-* Database initialization
 
-* How to run the test suite
+### Association
 
-* Services (job queues, cache servers, search engines, etc.)
+- belongs_to :user
+- has_one_attached :image
+- belongs_to_active_hash :category
+- belongs_to_active_hash :status
+- belongs_to_active_hash :ship_fee
+- belongs_to_active_hash :prefecture
+- belongs_to_active_hash :ship_schedule
+- has_one :user_item
 
-* Deployment instructions
+## user_items テーブル
 
-* ...
+| Column       | Type       | Options                        |
+| ------------ | ---------- | ------------------------------ |
+| user         | references | null: false, foreign_key: true |
+| item         | references | null: false, foreign_key: true |
+
+
+### Association
+
+- belongs_to :item 
+- belongs_to :user
+- has_one :user_address
+
+## user_address テーブル
+
+| Column       | Type       | Options                        |
+| ------------ | ---------- | ------------------------------ |
+| user_item    | references | null: false, foreign_key: true |
+| postal_code  | string     | null: false                    |
+| prefecture_id| integer    | null: false                    |
+| city         | string     | null: false                    |
+| address      | string     | null: false                    |
+| building_name| string     |                                |
+| phone        | string     | null: false                    | 
+
+
+
+### Association
+
+- belongs_to :user_item
+- belongs_to_active_hash :prefecture
