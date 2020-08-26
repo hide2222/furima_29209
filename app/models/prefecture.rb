@@ -1,4 +1,5 @@
 class Prefecture < ActiveHash::Base
+<<<<<<< Updated upstream
   self.data = [
     #ここにハッシュで都道府県を書いていく、その後、商品状態や配送条件なども同様に行うが、個別に分けて行うのかまとめられるのかも確認が必要か。
     #その前にREADMEを参照に、Itemモデルのマイグレーションファイルでいてitemsテーブルを作成予定。
@@ -8,4 +9,20 @@ class Prefecture < ActiveHash::Base
   
   ]
   
+=======
+<<<<<<< HEAD
+  self.data =
+  ]
+=======
+  self.data = [
+    #ここにハッシュで都道府県を書いていく、その後、商品状態や配送条件なども同様に行うが、個別に分けて行うのかまとめられるのかも確認が必要か。
+    #その前にREADMEを参照に、Itemモデルのマイグレーションファイルでいてitemsテーブルを作成予定。
+    #その後、ルーティングとコントローラを実装、ビューとの対応を行う。
+    #また、画像の対応でaActivestrage、非同期通信の活用でJavascriptを書いていく。
+    #がんばろう。
+  
+  ]
+  
+>>>>>>> 6080254d7497dace026c19d528eb618fe4afb979
+>>>>>>> Stashed changes
 end
