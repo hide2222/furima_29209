@@ -7,7 +7,7 @@ FactoryBot.define do
     Faker::Config.locale = :ja
     family_name           {Faker::Name.name}
     first_name            {Faker::Name.name}
-    birthday_id           {"1990-08-14"}
+    birthday              {"1990-08-14"}
     family_name_kana      {"ホゲ"}
     first_name_kana       {"フガ"}
   end
