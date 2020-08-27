@@ -7,6 +7,8 @@ class Item < ApplicationRecord
   belongs_to_active_hash :ship_fee
   belongs_to_active_hash :ship_schedule
 
+  validates :name, lenght{maximum: 40 }
+  validates :item_detail, lenght{maximum: 1000 }
   
 
   with_options presence: true do
