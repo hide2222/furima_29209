@@ -5,7 +5,7 @@ RSpec.describe Item, type: :model do
   before do
     @user = FactoryBot.create(:user)
     @item = FactoryBot.build(:item, user_id: @user.id)
-     #@item.image = fixture_file_upload('sample1.png')
+     #試行錯誤記念に残してあります。@item.image = fixture_file_upload('sample1.png')
   end
   describe 'ユーザー商品出品' do
     context '商品出品ががうまくいくとき' do
