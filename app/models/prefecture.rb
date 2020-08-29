@@ -1,5 +1,6 @@
 class Prefecture < ActiveHash::Base
   self.data = [
+
       {id: 0, name: '---'}, {id: 1, name: '北海道'}, {id: 2, name: '青森県'}, 
       {id: 3, name: '岩手県'}, {id: 4, name: '宮城県'}, {id: 5, name: '秋田県'},
       {id: 6, name: '山形県'}, {id: 7, name: '福島県'}, {id: 8, name: '茨城県'}, 
@@ -18,3 +19,14 @@ class Prefecture < ActiveHash::Base
       {id: 45, name: '宮崎県'}, {id: 46, name: '鹿児島県'}, {id: 47, name: '沖縄県'}
   ]
 end
+
+    #ここにハッシュで都道府県を書いていく、その後、商品状態や配送条件なども同様に行うが、個別に分けて行うのかまとめられるのかも確認が必要か。
+    #その前にREADMEを参照に、Itemモデルのマイグレーションファイルでいてitemsテーブルを作成予定。
+    #その後、ルーティングとコントローラを実装、ビューとの対応を行う。
+    #また、画像の対応でaActivestrage、非同期通信の活用でJavascriptを書いていく。
+    #がんばろう。
+  
+  ]
+  
+end
+
