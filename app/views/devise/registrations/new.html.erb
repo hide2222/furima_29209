@@ -8,9 +8,8 @@
     </h1>
   </div>
 
-   <%=form_for(@user, url:user_session_path) do |f| %>
   <%=render 'shared/error_messages', model: f.object %>
-  <% end %>
+  
   <div class="form-group">
     <div class='form-text-wrap'>
       <label class="form-text">ニックネーム</label>
@@ -76,7 +75,7 @@
     <div class='input-birth-wrap'>
       <%= raw sprintf(
                   f.date_select(
-                    :birthday_id,
+                    :birthday,
                     class:'select-birth',
                     id:"birth-date",
                     use_month_numbers: true,
