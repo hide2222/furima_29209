@@ -57,16 +57,27 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Prefecture is not a number")
       end
       it "ship_schedule_idが空だと登録できない" do
-       @item.ship_schedule_id = ""
-       @item.valid?
-       expect(@item.errors.full_messages).to include("Ship schedule is not a number")
+        @item.ship_schedule_id = ""
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Ship schedule is not a number")
       end
   
       it "priceは半角数字で書く必要がある" do
-      @item.price = "２３４あい"
-      @item.valid?
-      expect(@item.errors.full_messages).to include("Price is not included in the list")
+        @item.price = "２３４あい"
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Price is not included in the list")
       end
+      it "priceは300円以上で記載しなければ登録できない" do
+        @item.price = "299"
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Price is not included in the list")
+        end
+      it "priceは9999999円以上では登録できない" do
+        @item.price = "10000000"
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Price is not included in the list")
+      end
+
     end
   end
 end
