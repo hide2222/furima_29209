@@ -61,7 +61,31 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include("Ship schedule is not a number")
       end
-  
+      it "category_idが0だと登録できない" do
+        @item.category_id = "0"
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Category must be other than 0")
+      end
+      it "status_idが0だと登録できない" do
+        @item.status_id = "0"
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Status must be other than 0")
+      end
+      it "ship_fee_idが0だと登録できない" do
+        @item.ship_fee_id = "0"
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Ship fee must be other than 0")
+      end
+      it "prefecture_idが0だと登録できない" do
+        @item.prefecture_id = "0"
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Prefecture must be other than 0")
+      end
+      it "ship_schedule_idが0だと登録できない" do
+        @item.ship_schedule_id = "0"
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Ship schedule must be other than 0")
+      end
       it "priceは半角数字で書く必要がある" do
         @item.price = "２３４あい"
         @item.valid?
