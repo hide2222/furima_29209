@@ -9,6 +9,7 @@ class Item < ApplicationRecord
 
   validates :name, length: {maximum: 40 }
   validates :item_detail, length: {maximum: 1000 }
+  validates_inclusion_of :price, in: 300..5000
   
 
   with_options presence: true do
@@ -20,6 +21,7 @@ class Item < ApplicationRecord
   validates :price
   validates :name
   validates :item_detail
+  validates :image
   end
       
   with_options numericality: { other_than: 0 } do
@@ -29,4 +31,5 @@ class Item < ApplicationRecord
   validates :ship_fee_id
   validates :ship_schedule_id
   end
+
  end
