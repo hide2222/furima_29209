@@ -6,6 +6,7 @@ class Item < ApplicationRecord
   belongs_to_active_hash :status
   belongs_to_active_hash :ship_fee
   belongs_to_active_hash :ship_schedule
+  belongs_to :user
 
   validates :name, length: {maximum: 40 }
   validates :item_detail, length: {maximum: 1000 }
