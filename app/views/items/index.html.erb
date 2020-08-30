@@ -134,9 +134,8 @@
         <div class='item-img-content'>
           <%= image_tag item.image, class: "item-img" %>
 
-          <%# if @user_item_id.present? %>
+          <%# if @item.blank? %>
 
-            <%# else %>
           <div class='sold-out'>
             <span>Sold Out!!</span>
           </div>
