@@ -19,12 +19,6 @@ class ItemsController < ApplicationController
     @items = Item.order("created_at DESC")
   end
 
-  def show
-  end
-
-  def edit
-  end
-
   def update
     if @item.update(item_params)
        redirect_to item_path
