@@ -1,6 +1,8 @@
 class OrdersController < ApplicationController
 
- 
+  def index
+    @item = Item.find_by(params[:id])
+  end
 
   def create
     @order = Order.new(price: order_params[:price])
