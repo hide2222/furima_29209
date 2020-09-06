@@ -54,7 +54,7 @@ class OrdersController < ApplicationController
 
   def redirect_to_root_path
     @pay = Order.new
-    if @pay.present? 
+    if @pay.id.present? 
       redirect_to root_path
     end
   end
