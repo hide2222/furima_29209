@@ -49,7 +49,7 @@ context "商品購入手続きががうまくいかないとき" do
   it "tokenが空だと購入完了できない" do
     @payment.token =""
     @payment.valid?
-    expect(@payment.errors.full_messages).to include("Token is invalid")
+    expect(@payment.errors.full_messages).to include("Token can't be blank")
   end
 end
 end
