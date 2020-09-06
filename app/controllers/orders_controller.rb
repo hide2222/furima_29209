@@ -10,10 +10,10 @@ class OrdersController < ApplicationController
 
 
   def create
-    
     @order = Payment.new(order_params)
+ 
     if @order.valid?
-      
+      pay_item
       @order.save
       return redirect_to root_path
     else
@@ -25,7 +25,7 @@ class OrdersController < ApplicationController
  
   def order_params
     
-    params.require(:payment).permit(:postal_code, :prefecture_id, :city, :address, :building_name, :phone).merge(user_id:current_user.id, item_id:@item.id)
+    params.require(:payment).permit(:postal_code, :prefecture_id, :city, :address, :building_name, :phone).merge(user_id:current_user.id, item_id:@item.id, token:params[:token],price:@item.price)
   end
 
   def pay_item

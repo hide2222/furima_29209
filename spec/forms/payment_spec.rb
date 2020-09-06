@@ -2,12 +2,15 @@ require 'rails_helper'
 
 RSpec.describe Payment, type: :model do
   before do
-    @payment = FactoryBot.build(:payment)
+      @buy_user = FactoryBot.create(:user)
+      @sell_user =　FactoryBot.create(:user)
+      @item = FactoryBot.build(:item, user_id: @sell_user.id)
+      @payment = FactoryBot.build(:payment, user_id:@buy_user.id)
   end
 
  describe "購入手続き完了" do
   context '商品購入手続きががうまくいくとき' do
-    it "postal_codeとprefecture_idとcityとaddressとphoneとが存在すれば購入手続きできる" do
+    it "postal_codeとprefecture_idとcityとaddressとphoneとtokenが存在すれば購入手続きできる" do
       expect(@payment). to be_valid
     end
   end
@@ -43,6 +46,11 @@ RSpec.describe Payment, type: :model do
       @payment.valid?
       expect(@payment.errors.full_messages).to include("Phone can't be blank")
     end
+    it "tokenが空だと購入完了できない" do
+      @payment.token =""
+      @payment.valid?
+      expect(@payment.errors.full_messages).to include("Token is invalid")
+    end
   end
-end
+ end
 end

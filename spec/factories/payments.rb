@@ -5,5 +5,9 @@ FactoryBot.define do
     city                {"札幌市"}
     address             {"札幌１−１−１"}
     phone               {"09022222222"}
+    token               {"222xxxx123v26d"}
+    association :user
+    association :item
   end
 end
+  
