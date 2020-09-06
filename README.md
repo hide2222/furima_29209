@@ -17,7 +17,7 @@
 ### Association
 
 - has_many :items
-- has_many :user_items
+- has_many :orders
 
 ## items テーブル
 
@@ -43,9 +43,9 @@
 - belongs_to_active_hash :ship_fee
 - belongs_to_active_hash :prefecture
 - belongs_to_active_hash :ship_schedule
-- has_one :user_item
+- has_one :order
 
-## user_items テーブル
+## orders テーブル
 
 | Column       | Type       | Options                        |
 | ------------ | ---------- | ------------------------------ |
@@ -57,13 +57,13 @@
 
 - belongs_to :item 
 - belongs_to :user
-- has_one :user_address
+- has_one :address
 
-## user_address テーブル
+## addresses テーブル
 
 | Column       | Type       | Options                        |
 | ------------ | ---------- | ------------------------------ |
-| user_item    | references | null: false, foreign_key: true |
+| order        | references | null: false, foreign_key: true |
 | postal_code  | string     | null: false                    |
 | prefecture_id| integer    | null: false                    |
 | city         | string     | null: false                    |
@@ -75,5 +75,5 @@
 
 ### Association
 
-- belongs_to :user_item
+- belongs_to :order
 - belongs_to_active_hash :prefecture

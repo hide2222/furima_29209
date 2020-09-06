@@ -127,15 +127,15 @@
 
     <ul class='item-lists'>
     <% if @items.present? %>
-　　<% @items.each do |item| %>　　
+   <% @items.each do |item| %>
       <li class='list'>
        
         <%= link_to item_path(id: item.id) do %>
         <div class='item-img-content'>
           <%= image_tag item.image, class: "item-img" %>
 
-          <% if item.blank? %>
-
+          
+         <% if item.order.present? %>
           <div class='sold-out'>
             <span>Sold Out!!</span>
           </div>
